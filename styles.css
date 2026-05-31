@@ -1036,12 +1036,13 @@ img {
     .footer-content {
         flex-direction: column;
         gap: 24px;
-        text-align: center;
+        text-align: left;
+        align-items: flex-start;
     }
     
     .footer-links {
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: flex-start;
     }
     
     .section {
