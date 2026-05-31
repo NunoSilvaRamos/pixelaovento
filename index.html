@@ -15,7 +15,7 @@
     <nav class="navbar" id="navbar">
         <div class="nav-container">
             <a href="#hero" class="nav-logo">
-                <img src="assets/logo.svg" alt="Pixel ao Vento" class="logo-img">
+                <img src="assets/LogoPixelV1.svg" alt="Pixel ao Vento" class="logo-img">
             </a>
             <button class="nav-toggle" id="navToggle" aria-label="Menu">
                 <span></span>
@@ -24,9 +24,9 @@
             </button>
             <ul class="nav-menu" id="navMenu">
                 <li><a href="#hero" class="nav-link" data-pt="Início" data-en="Home">Início</a></li>
-                <li><a href="#about" class="nav-link" data-pt="Sobre" data-en="About">Sobre</a></li>
-                <li><a href="#services" class="nav-link" data-pt="Serviços" data-en="Services">Serviços</a></li>
-                <li><a href="#portfolio" class="nav-link" data-pt="Trabalhos" data-en="Portfolio">Trabalhos</a></li>
+                <li><a href="#about" class="nav-link" data-pt="Conheça" data-en="Know Us">Conheça</a></li>
+                <li><a href="#services" class="nav-link" data-pt="Saiba" data-en="Discover">Saiba</a></li>
+                <li><a href="#portfolio" class="nav-link" data-pt="Veja" data-en="Explore">Veja</a></li>
                 <li><a href="#contact" class="nav-link" data-pt="Contacto" data-en="Contact">Contacto</a></li>
             </ul>
             <button class="lang-toggle" id="langToggle" aria-label="Change language">
@@ -37,16 +37,10 @@
 
     <!-- Hero Section -->
     <section class="hero" id="hero">
-        <div class="hero-bg">
-            <div class="hero-gradient"></div>
-            <div class="hero-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-                <div class="shape shape-4"></div>
-                <div class="shape shape-5"></div>
-            </div>
-        </div>
+        <!-- WebGL Fluid Canvas (ink dispersion effect) -->
+        <canvas id="fluidCanvas"></canvas>
+        <div class="hero-overlay"></div>
+
         <div class="hero-content">
             <h1 class="hero-title" data-pt="Inspire-se, nós produzimos" data-en="Get inspired, we produce">
                 Inspire-se,<br><span class="highlight">nós produzimos</span>
@@ -69,7 +63,7 @@
     <section class="section about" id="about">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title" data-pt="Quem Somos" data-en="About Us">Quem Somos</h2>
+                <h2 class="section-title" data-pt="Conheça" data-en="Know Us">Conheça</h2>
                 <div class="title-accent"></div>
             </div>
             <div class="about-grid">
@@ -79,6 +73,9 @@
                     </p>
                     <p data-pt="Executamos, acompanhamos e aconselhamos soluções de produção gráfica em vários processos e técnicas de impressão, ajudando os nossos clientes a navegar através das variadas possibilidades de alcançar o melhor resultado para o seu projecto." data-en="We execute, monitor and advise on graphic production solutions across various printing processes and techniques, helping our clients navigate through the many possibilities to achieve the best result for their project.">
                         Executamos, acompanhamos e aconselhamos soluções de produção gráfica em vários processos e técnicas de impressão, ajudando os nossos clientes a navegar através das variadas possibilidades de alcançar o melhor resultado para o seu projecto.
+                    </p>
+                    <p data-pt="Com experiência em offset, digital, serigrafia, grandes formatos e impressão sobre plásticos, oferecemos um acompanhamento completo — desde a ideia inicial até ao produto final." data-en="With experience in offset, digital, screen printing, large format and printing on plastics, we offer complete support — from the initial idea to the final product.">
+                        Com experiência em offset, digital, serigrafia, grandes formatos e impressão sobre plásticos, oferecemos um acompanhamento completo — desde a ideia inicial até ao produto final.
                     </p>
                 </div>
                 <div class="about-visual">
@@ -97,7 +94,7 @@
     <section class="section services" id="services">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title" data-pt="Os Nossos Serviços" data-en="Our Services">Os Nossos Serviços</h2>
+                <h2 class="section-title" data-pt="Saiba" data-en="Discover">Saiba</h2>
                 <div class="title-accent"></div>
             </div>
             <div class="services-grid">
@@ -186,85 +183,114 @@
         </div>
     </section>
 
-    <!-- Portfolio / Gallery Section -->
+    <!-- Portfolio / Fruits Section -->
     <section class="section portfolio" id="portfolio">
         <div class="container">
             <div class="section-header">
-                <h2 class="section-title" data-pt="Os Nossos Trabalhos" data-en="Our Work">Os Nossos Trabalhos</h2>
+                <h2 class="section-title" data-pt="Veja" data-en="Explore">Veja</h2>
                 <div class="title-accent"></div>
-                <p class="section-desc" data-pt="Alguns exemplos do que podemos fazer por si" data-en="Some examples of what we can do for you">Alguns exemplos do que podemos fazer por si</p>
+                <p class="section-desc" data-pt="Passe o rato sobre as frutas para descobrir o que fazemos" data-pt-mobile="Toque nas frutas para descobrir o que fazemos" data-en="Hover over the fruits to discover what we do" data-en-mobile="Tap the fruits to discover what we do">Passe o rato sobre as frutas para descobrir o que fazemos</p>
             </div>
-            <div class="portfolio-grid">
-                <div class="portfolio-item" style="--accent: #00bcd4;">
-                    <div class="portfolio-placeholder">
-                        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="10" y="15" width="60" height="50" rx="3"/>
-                            <path d="M10 50l15-12 10 8 20-16 15 12"/>
-                            <circle cx="55" cy="30" r="5"/>
-                        </svg>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <span data-pt="Impressão Digital" data-en="Digital Printing">Impressão Digital</span>
-                    </div>
-                </div>
-                <div class="portfolio-item" style="--accent: #e91e63;">
-                    <div class="portfolio-placeholder">
-                        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="10" y="15" width="60" height="50" rx="3"/>
-                            <path d="M10 50l15-12 10 8 20-16 15 12"/>
-                            <circle cx="55" cy="30" r="5"/>
-                        </svg>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <span data-pt="Serigrafia" data-en="Screen Printing">Serigrafia</span>
+        </div>
+        <div class="fruits-showcase">
+            <div class="fruits-container">
+                <img src="assets/citrus.jpg" alt="Citrus fruits" class="fruits-bg">
+                
+                <!-- Hotspots positioned over individual fruits -->
+                <!-- Adjust --x and --y percentages to align with actual fruit positions -->
+                <div class="fruit-hotspot" style="--x: 22%; --y: 22%; --size: 90px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_Various.png" alt="Impressos Diversos" class="reveal-img">
+                        <span data-pt="Impressos Diversos" data-en="Printed Materials">Impressos Diversos</span>
                     </div>
                 </div>
-                <div class="portfolio-item" style="--accent: #ff9800;">
-                    <div class="portfolio-placeholder">
-                        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="10" y="15" width="60" height="50" rx="3"/>
-                            <path d="M10 50l15-12 10 8 20-16 15 12"/>
-                            <circle cx="55" cy="30" r="5"/>
-                        </svg>
-                    </div>
-                    <div class="portfolio-overlay">
+
+                <div class="fruit-hotspot" style="--x: 40%; --y: 14%; --size: 90px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_Caixa_Innovation.png" alt="Embalagem" class="reveal-img">
                         <span data-pt="Embalagem" data-en="Packaging">Embalagem</span>
                     </div>
                 </div>
-                <div class="portfolio-item" style="--accent: #4caf50;">
-                    <div class="portfolio-placeholder">
-                        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="10" y="15" width="60" height="50" rx="3"/>
-                            <path d="M10 50l15-12 10 8 20-16 15 12"/>
-                            <circle cx="55" cy="30" r="5"/>
-                        </svg>
+
+                <div class="fruit-hotspot" style="--x: 66%; --y: 16%; --size: 80px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_Fluorescentes.png" alt="Tintas Especiais" class="reveal-img">
+                        <span data-pt="Tintas Especiais" data-en="Special Inks">Tintas Especiais</span>
                     </div>
-                    <div class="portfolio-overlay">
+                </div>
+
+                <div class="fruit-hotspot" style="--x: 72%; --y: 37%; --size: 140px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_Impressao_Caderno.png" alt="Impressão Digital" class="reveal-img">
+                        <span data-pt="Impressão Digital" data-en="Digital Printing">Impressão Digital</span>
+                    </div>
+                </div>
+
+                <div class="fruit-hotspot" style="--x: 22%; --y: 54%; --size: 100px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_MOUSEPAD.png" alt="Mousepad" class="reveal-img">
                         <span data-pt="Merchandising" data-en="Merchandising">Merchandising</span>
                     </div>
                 </div>
-                <div class="portfolio-item" style="--accent: #9c27b0;">
-                    <div class="portfolio-placeholder">
-                        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="10" y="15" width="60" height="50" rx="3"/>
-                            <path d="M10 50l15-12 10 8 20-16 15 12"/>
-                            <circle cx="55" cy="30" r="5"/>
-                        </svg>
-                    </div>
-                    <div class="portfolio-overlay">
-                        <span data-pt="Offset" data-en="Offset">Offset</span>
+
+                <div class="fruit-hotspot" style="--x: 46%; --y: 36%; --size: 140px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_RemoteSticker.png" alt="Painéis Técnicos" class="reveal-img">
+                        <span data-pt="Painéis Técnicos" data-en="Technical Panels">Painéis Técnicos</span>
                     </div>
                 </div>
-                <div class="portfolio-item" style="--accent: #ffc107;">
-                    <div class="portfolio-placeholder">
-                        <svg viewBox="0 0 80 80" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <rect x="10" y="15" width="60" height="50" rx="3"/>
-                            <path d="M10 50l15-12 10 8 20-16 15 12"/>
-                            <circle cx="55" cy="30" r="5"/>
-                        </svg>
+
+                <div class="fruit-hotspot" style="--x: 34%; --y: 50%; --size: 120px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_Raspadinha.png" alt="Raspadinhas" class="reveal-img">
+                        <span data-pt="Raspadinhas" data-en="Scratch Cards">Raspadinhas</span>
                     </div>
-                    <div class="portfolio-overlay">
-                        <span data-pt="Grande Formato" data-en="Large Format">Grande Formato</span>
+                </div>
+
+                <div class="fruit-hotspot" style="--x: 39%; --y: 68%; --size: 90px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_Rotulo.png" alt="Rótulos" class="reveal-img">
+                        <span data-pt="Rótulos" data-en="Labels">Rótulos</span>
+                    </div>
+                </div>
+
+                <div class="fruit-hotspot" style="--x: 62%; --y: 71%; --size: 100px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_Sticker.png" alt="Stickers" class="reveal-img">
+                        <span data-pt="Autocolantes" data-en="Stickers">Autocolantes</span>
+                    </div>
+                </div>
+
+                <div class="fruit-hotspot" style="--x: 76%; --y: 57%; --size: 80px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_Iman.png" alt="Ímanes" class="reveal-img">
+                        <span data-pt="Ímanes" data-en="Magnets">Ímanes</span>
+                    </div>
+                </div>
+
+                <div class="fruit-hotspot" style="--x: 21%; --y: 76%; --size: 105px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_Racket.png" alt="Raquetes" class="reveal-img">
+                        <span data-pt="Raquetes" data-en="Rackets">Raquetes</span>
+                    </div>
+                </div>
+
+                <div class="fruit-hotspot" style="--x: 42%; --y: 86%; --size: 90px;">
+                    <div class="hotspot-ring"></div>
+                    <div class="hotspot-reveal">
+                        <img src="assets/PAV_iloveu.png" alt="Verniz UV" class="reveal-img">
+                        <span data-pt="Verniz UV" data-en="UV Varnish">Verniz UV</span>
                     </div>
                 </div>
             </div>
@@ -347,13 +373,14 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <img src="assets/logo.svg" alt="Pixel ao Vento" class="footer-logo">
+                    <img src="assets/LogoPixelV1WithNameWhite.svg" alt="Pixel ao Vento" class="footer-logo">
                     <p data-pt="Inspire-se, nós produzimos" data-en="Get inspired, we produce">Inspire-se, nós produzimos</p>
                 </div>
                 <div class="footer-links">
                     <a href="#hero" data-pt="Início" data-en="Home">Início</a>
-                    <a href="#about" data-pt="Sobre" data-en="About">Sobre</a>
-                    <a href="#services" data-pt="Serviços" data-en="Services">Serviços</a>
+                    <a href="#about" data-pt="Conheça" data-en="Know Us">Conheça</a>
+                    <a href="#services" data-pt="Saiba" data-en="Discover">Saiba</a>
+                    <a href="#portfolio" data-pt="Veja" data-en="Explore">Veja</a>
                     <a href="#contact" data-pt="Contacto" data-en="Contact">Contacto</a>
                 </div>
             </div>
@@ -363,6 +390,40 @@
         </div>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/webgl-fluid@0.3"></script>
+    <script>
+        WebGLFluid(document.querySelector('#fluidCanvas'), {
+            SIM_RESOLUTION: 128,
+            DYE_RESOLUTION: 1024,
+            DENSITY_DISSIPATION: 0.97,
+            VELOCITY_DISSIPATION: 0.98,
+            PRESSURE: 0.8,
+            PRESSURE_ITERATIONS: 20,
+            CURL: 30,
+            INITIAL: true,
+            SPLAT_AMOUNT: 5,
+            SPLAT_RADIUS: 0.3,
+            SPLAT_FORCE: 6000,
+            SPLAT_KEY: 'Space',
+            SHADING: true,
+            COLORFUL: true,
+            COLOR_UPDATE_SPEED: 10,           
+            COLOR_PALETTE: [],
+            HOVER: true,
+            BACK_COLOR: { r: 10, g: 10, b: 15 },
+            TRANSPARENT: false,
+            BRIGHTNESS: 0.5,
+            BLOOM: true,
+            BLOOM_ITERATIONS: 8,
+            BLOOM_RESOLUTION: 256,
+            BLOOM_INTENSITY: 0.4,
+            BLOOM_THRESHOLD: 0.8,
+            BLOOM_SOFT_KNEE: 0.7,
+            SUNRAYS: false,
+            SUNRAYS_RESOLUTION: 196,
+            SUNRAYS_WEIGHT: 1.0,
+        });
+    </script>
     <script src="script.js"></script>
 </body>
 </html>
