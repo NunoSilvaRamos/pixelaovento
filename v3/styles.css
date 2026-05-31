@@ -68,7 +68,7 @@ img {
     left: 0;
     right: 0;
     z-index: 1000;
-    padding: 16px 0;
+    padding: 22px 0;
     transition: var(--transition);
     background: transparent;
 }
@@ -76,7 +76,7 @@ img {
 .navbar.scrolled {
     background: rgba(26, 26, 46, 0.95);
     backdrop-filter: blur(10px);
-    padding: 10px 0;
+    padding: 16px 0;
     box-shadow: var(--shadow-md);
 }
 
@@ -95,14 +95,14 @@ img {
 }
 
 .logo-img {
-    height: 48px;
+    height: 60px;
     width: auto;
     transition: height var(--transition);
     will-change: transform;
 }
 
 .navbar.scrolled .logo-img {
-    height: 40px;
+    height: 50px;
 }
 
 .nav-menu {
@@ -374,7 +374,7 @@ img {
 
 /* ===== SECTIONS ===== */
 .section {
-    padding: 100px 0;
+    padding: 70px 0;
 }
 
 .section-header {
@@ -402,7 +402,7 @@ img {
     margin-top: 16px;
     color: var(--text-muted);
     font-size: 1.1rem;
-    max-width: 500px;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
 }
@@ -611,60 +611,87 @@ img {
     z-index: 10;
 }
 
-.hotspot-ring {
-    position: absolute;
-    inset: 0;
-    border-radius: 50%;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    transition: var(--transition);
-    animation: pulse 3s ease-in-out infinite;
-}
-
-.fruit-hotspot:hover .hotspot-ring {
-    border-color: rgba(255, 255, 255, 0.95);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.3), inset 0 0 15px rgba(255, 255, 255, 0.1);
-    animation: none;
-    transform: scale(1.1);
-}
-
-@keyframes pulse {
-    0%, 100% { transform: scale(1); opacity: 0.5; }
-    50% { transform: scale(1.1); opacity: 1; }
-}
-
-/* Reveal card on hover */
-.hotspot-reveal {
-    position: absolute;
-    bottom: calc(100% + 12px);
-    left: 50%;
-    transform: translateX(-50%) translateY(8px) scale(0.9);
-    width: 180px;
-    background: white;
-    border-radius: var(--radius);
-    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
-    opacity: 0;
-    pointer-events: none;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    z-index: 100;
-    padding: 16px;
-    text-align: center;
-}
-
-.fruit-hotspot:hover .hotspot-reveal,
-.fruit-hotspot.touch-active .hotspot-reveal {
-    opacity: 1;
-    transform: translateX(-50%) translateY(0) scale(1);
-}
-
 .fruit-hotspot:hover {
     z-index: 50;
 }
 
-/* Top-row hotspots show reveal below */
-.fruit-hotspot:nth-child(-n+5) .hotspot-reveal {
-    bottom: auto;
-    top: calc(100% + 12px);
+.hotspot-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    margin: -7px 0 0 -7px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.7), 0 0 25px rgba(255, 255, 255, 0.4);
+    transition: var(--transition);
+    animation: dotPulse 3s ease-in-out infinite;
 }
+
+.fruit-hotspot:hover .hotspot-ring {
+    background: rgba(255, 255, 255, 1);
+    box-shadow: 0 0 14px rgba(255, 255, 255, 0.9), 0 0 35px rgba(255, 255, 255, 0.5);
+    animation: none;
+    transform: scale(1.4);
+}
+
+@keyframes dotPulse {
+    0%, 100% { opacity: 0.7; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+}
+
+/* Reveal card on hover */
+.hotspot-reveal {
+    display: none;
+}
+
+/* Floating reveal (injected by JS) */
+.floating-reveal {
+    position: fixed;
+    width: 320px;
+    background: white;
+    border-radius: var(--radius);
+    box-shadow: 0 8px 30px rgba(0,0,0,0.4);
+    z-index: 9999;
+    padding: 20px;
+    text-align: center;
+    pointer-events: none;
+    animation: revealIn 0.2s ease;
+}
+
+.floating-reveal .reveal-img {
+    width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: 8px;
+    margin-bottom: 8px;
+}
+
+.floating-reveal .reveal-icon {
+    font-size: 1.8rem;
+    margin-bottom: 6px;
+}
+
+.floating-reveal span {
+    display: block;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+}
+
+.floating-reveal small {
+    color: var(--text-muted);
+    font-size: 0.85rem;
+}
+
+@keyframes revealIn {
+    from { opacity: 0; transform: translateY(5px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Top-row hotspots - handled by JS now */
 
 .hotspot-reveal .reveal-icon {
     font-size: 1.8rem;
@@ -819,7 +846,7 @@ img {
 .footer {
     background: var(--bg-dark);
     color: var(--text-light);
-    padding: 60px 0 30px;
+    padding: 40px 0 30px;
 }
 
 .footer-content {
@@ -831,7 +858,7 @@ img {
 }
 
 .footer-logo {
-    height: 50px;
+    height: 80px;
     margin-bottom: 12px;
 }
 
@@ -953,20 +980,17 @@ img {
     
     /* Fruits on mobile */
     .fruit-hotspot {
-        width: var(--size, 50px);
-        height: var(--size, 50px);
-        min-width: 44px;
-        min-height: 44px;
+        --scale: 0.55;
+        width: var(--size, 60px);
+        height: var(--size, 60px);
+        transform: translate(-50%, -50%) scale(var(--scale));
+        min-width: unset;
+        min-height: unset;
     }
     
-    .hotspot-reveal {
-        width: 160px;
-        padding: 12px;
-    }
-    
-    .fruit-hotspot.touch-active .hotspot-reveal {
-        opacity: 1;
-        transform: translateX(-50%) translateY(0) scale(1);
+    .fruit-hotspot:hover,
+    .fruit-hotspot.touch-active {
+        transform: translate(-50%, -50%) scale(calc(var(--scale) * 1.1));
     }
     
     .contact-grid {
@@ -996,8 +1020,7 @@ img {
 
 @media (max-width: 480px) {
     .fruit-hotspot {
-        min-width: 40px;
-        min-height: 40px;
+        --scale: 0.4;
     }
     
     .hero-content {
