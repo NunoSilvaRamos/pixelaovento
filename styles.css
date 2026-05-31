@@ -953,7 +953,7 @@ img {
         right: -100%;
         width: 280px;
         height: 100vh;
-        background: var(--bg-dark);
+        background: linear-gradient(to bottom right, var(--bg-dark) 40%, #0a3d5c 70%, #00bcd4 90%, #e91e63 100%);
         flex-direction: column;
         padding: 80px 30px 30px;
         transition: var(--transition);
@@ -1053,8 +1053,13 @@ img {
         font-size: clamp(2rem, 8vw, 3rem);
     }
     
+    .hero {
+        align-items: flex-start;
+        padding-top: 30vh;
+    }
+    
     .hero-scroll {
-        bottom: 60px;
+        bottom: 80px;
     }
 }
 
