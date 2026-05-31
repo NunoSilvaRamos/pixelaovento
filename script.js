@@ -2,12 +2,18 @@
 let currentLang = 'pt';
 
 const langToggle = document.getElementById('langToggle');
+const langToggleMobile = document.getElementById('langToggleMobile');
 
-langToggle.addEventListener('click', () => {
+function handleLangToggle() {
     currentLang = currentLang === 'pt' ? 'en' : 'pt';
     updateLanguage();
     updateLangButton();
-});
+}
+
+langToggle.addEventListener('click', handleLangToggle);
+if (langToggleMobile) {
+    langToggleMobile.addEventListener('click', handleLangToggle);
+}
 
 function updateLanguage() {
     const isMobileView = window.innerWidth <= 768;
@@ -35,14 +41,17 @@ function updateLanguage() {
 }
 
 function updateLangButton() {
-    const spans = langToggle.querySelectorAll('span');
-    if (currentLang === 'pt') {
-        spans[0].className = 'lang-active';
-        spans[1].className = 'lang-inactive';
-    } else {
-        spans[0].className = 'lang-inactive';
-        spans[1].className = 'lang-active';
-    }
+    [langToggle, langToggleMobile].forEach(btn => {
+        if (!btn) return;
+        const spans = btn.querySelectorAll('span');
+        if (currentLang === 'pt') {
+            spans[0].className = 'lang-active';
+            spans[1].className = 'lang-inactive';
+        } else {
+            spans[0].className = 'lang-inactive';
+            spans[1].className = 'lang-active';
+        }
+    });
 }
 
 // ===== NAVBAR SCROLL =====
