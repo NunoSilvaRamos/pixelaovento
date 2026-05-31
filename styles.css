@@ -95,14 +95,14 @@ img {
 }
 
 .logo-img {
-    height: 60px;
+    height: 120px;
     width: auto;
     transition: height var(--transition);
     will-change: transform;
 }
 
 .navbar.scrolled .logo-img {
-    height: 50px;
+    height: 60px;
 }
 
 .nav-menu {
@@ -866,7 +866,7 @@ img {
 }
 
 .footer-logo {
-    height: 80px;
+    height: 140px;
     margin-bottom: 12px;
 }
 
