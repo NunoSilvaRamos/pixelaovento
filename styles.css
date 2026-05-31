@@ -917,6 +917,24 @@ img {
 }
 
 @media (max-width: 768px) {
+    .navbar {
+        padding: 12px 0;
+        background: rgba(26, 26, 46, 0.3);
+    }
+    
+    .navbar.scrolled {
+        padding: 10px 0;
+        background: rgba(26, 26, 46, 0.7);
+    }
+    
+    .logo-img {
+        height: 40px;
+    }
+    
+    .navbar.scrolled .logo-img {
+        height: 36px;
+    }
+    
     .nav-toggle {
         display: flex;
     }
@@ -953,6 +971,7 @@ img {
     .about-grid {
         grid-template-columns: 1fr;
         gap: 40px;
+        text-align: center;
     }
     
     .about-visual {
@@ -1015,6 +1034,10 @@ img {
     
     .hero-title {
         font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    .hero-scroll {
+        bottom: 20px;
     }
 }
 
